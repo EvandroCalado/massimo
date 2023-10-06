@@ -25,12 +25,6 @@ const config: Config = {
           '990': '#181818',
         },
       },
-      screens: {
-        xs: '320px',
-        sm: '640px',
-        md: '1024px',
-        lg: '1280px',
-      },
     },
   },
   plugins: [],
