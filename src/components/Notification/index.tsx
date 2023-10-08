@@ -1,13 +1,7 @@
-export type NotificationProps = {
-  title?: string;
-};
-
-export default function Notification({
-  title = 'Notification',
-}: NotificationProps) {
+export default function Notification() {
   return (
-    <div>
-      <h1>{title}</h1>
+    <div className="flex h-12 cursor-pointer items-center justify-center bg-red-500 px-4 text-center text-sm text-white md:text-base">
+      Entrega grátis para pedidos acimade de R$ 80,00. Faça o seu pedido agora!
     </div>
   );
 }
