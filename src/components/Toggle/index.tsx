@@ -1,7 +1,7 @@
 'use client';
 
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import { moon, sun } from '../../icons';
 
 export default function Toggle() {
   const [isMounted, setIsMounted] = useState(false);
@@ -21,15 +21,11 @@ export default function Toggle() {
     }
   }, [darkMode]);
   return (
-    <button
-      type="button"
-      onClick={() => setDarkMode(!darkMode)}
-      className="inline-flex items-center rounded-lg border border-theme-700 p-1.5 text-theme-700 duration-200 hover:bg-theme-200 dark:border-theme-300 dark:text-theme-300 dark:hover:bg-theme-990"
-    >
+    <button type="button" onClick={() => setDarkMode(!darkMode)}>
       {darkMode ? (
-        <span className="[&>svg]:h-6 [&>svg]:w-6">{sun}</span>
+        <Image src="/icons/sun.png" alt="Sun" width={30} height={30} />
       ) : (
-        <span className="[&>svg]:h-6 [&>svg]:w-6">{moon}</span>
+        <Image src="/icons/moon.png" alt="Moon" width={30} height={30} />
       )}
     </button>
   );
