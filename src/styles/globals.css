@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply flex min-h-screen w-full flex-col bg-theme-100 text-theme-900 duration-300 dark:bg-theme-900 dark:text-theme-100;
+    @apply flex min-h-screen w-full flex-col overflow-x-hidden bg-theme-100 text-theme-900 duration-300 dark:bg-theme-900 dark:text-theme-100;
   }
 
   main {
