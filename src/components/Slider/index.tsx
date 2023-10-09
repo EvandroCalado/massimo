@@ -16,7 +16,7 @@ const sliders = [
   },
   {
     id: 3,
-    title: 'A melhor pizza para compartilhar com a família',
+    title: 'Compartilhe o melhor com sua familia',
     image: '/slide/slide3.jpg',
   },
 ];
@@ -35,7 +35,7 @@ export default function Slider() {
   }, [currentSlide]);
 
   return (
-    <div className="flex h-[calc(100vh-6rem)] flex-col md:h-[calc(100vh-9rem)] lg:flex-row">
+    <div className="flex h-[calc(100vh-6rem)] flex-col bg-fuchsia-50 md:h-[calc(100vh-9rem)] lg:flex-row">
       {/* TEXT CONTAINER */}
       <div className="flex h-1/2 w-full flex-col items-center justify-center gap-8 font-bold text-red-500 lg:h-full">
         <h1 className="p-4 text-center text-4xl uppercase sm:text-5xl md:p-6 md:text-6xl xl:text-7xl">
