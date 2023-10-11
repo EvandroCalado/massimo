@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import Button from '../Button';
 
 const sliders = [
   {
@@ -35,18 +36,16 @@ export default function Slider() {
   }, [currentSlide]);
 
   return (
-    <div className="flex h-[calc(100vh-6rem)] flex-col bg-fuchsia-50 md:h-[calc(100vh-9rem)] lg:flex-row">
+    <div className="flex h-[calc(100vh-6rem)] flex-col bg-fuchsia-50 md:flex-row lg:h-[calc(100vh-9rem)]">
       {/* TEXT CONTAINER */}
-      <div className="flex h-1/2 w-full flex-col items-center justify-center gap-8 font-bold text-red-500 lg:h-full">
+      <div className="flex h-1/2 w-full flex-col items-center justify-center gap-8 font-bold text-red-500 md:h-full">
         <h1 className="p-4 text-center text-4xl uppercase sm:text-5xl md:p-6 md:text-6xl xl:text-7xl">
           {sliders[currentSlide].title}
         </h1>
-        <button className="bg-red-500 px-4 py-2 text-white duration-150 hover:bg-red-600 md:px-8 md:py-4">
-          Peça já
-        </button>
+        <Button>Peça já</Button>
       </div>
       {/* IMAGE CONTAINER */}
-      <div className="relative h-1/2 w-full lg:h-full">
+      <div className="relative h-1/2 w-full md:h-full">
         <Image
           src={sliders[currentSlide].image}
           alt="Slide"
