@@ -6,7 +6,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { featuredProducts } from '../../utils/data';
 
 import 'swiper/css';
-import 'swiper/css/autoplay';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
@@ -16,6 +15,7 @@ export default function Featured() {
       modules={[Navigation, Pagination, Autoplay]}
       navigation
       autoplay
+      loop
       pagination={{ clickable: true }}
       spaceBetween={50}
       breakpoints={{
@@ -33,7 +33,7 @@ export default function Featured() {
       {featuredProducts.map((product) => (
         <SwiperSlide key={product.id}>
           <div
-            className={`flex h-[80vh] flex-col items-center p-8 duration-150 hover:bg-fuchsia-50`}
+            className={`flex h-[80vh] flex-col items-center p-8 duration-150 hover:bg-theme-50 dark:hover:bg-theme-800`}
           >
             {/* IMAGE CONTAINER */}
             {product.img && (
@@ -53,7 +53,7 @@ export default function Featured() {
               </h1>
               <p className="p-4 text-sm lg:text-base">{product.desc}</p>
               <span className="text-xl font-bold">R$ {product.price}</span>
-              <button className="bg-red-500 p-2 text-white duration-150 hover:bg-red-600">
+              <button className="rounded-md bg-red-500 p-2 text-white duration-150 hover:bg-red-600">
                 Adicionar
               </button>
             </div>
