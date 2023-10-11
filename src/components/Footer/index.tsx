@@ -6,7 +6,7 @@ export default function Footer() {
       <Link href={'/'} className="text-xl font-bold uppercase">
         Massimo
       </Link>
-      <p>© Todos os direitos reservados.</p>
+      <p className="text-sm md:text-base">© Todos os direitos reservados.</p>
     </div>
   );
 }
