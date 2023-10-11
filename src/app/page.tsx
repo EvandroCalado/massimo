@@ -1,10 +1,13 @@
-import Toggle from '../components/Toggle';
+import Featured from '../components/Featured';
+import Offer from '../components/Offer';
+import Slider from '../components/Slider';
 
 export default function Home() {
   return (
-    <div>
-      <Toggle />
-      <h1>Home</h1>
-    </div>
+    <main>
+      <Slider />
+      <Featured />
+      <Offer />
+    </main>
   );
 }
