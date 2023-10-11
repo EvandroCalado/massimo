@@ -311,7 +311,7 @@ export const pizzas: Products = [
     id: 6,
     title: 'Four Cheese Fantasy',
     desc: 'Experience pure cheesy bliss with a melty blend of mozzarella, cheddar, provolone, and Parmesan cheeses, creating a rich and indulgent pizza experience.',
-    img: '/temporary/p12.png',
+    img: '/products/p12.png',
     price: 22.9,
     options: [
       {
