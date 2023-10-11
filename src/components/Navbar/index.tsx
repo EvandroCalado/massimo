@@ -23,7 +23,7 @@ export default function Navbar() {
         <Menu />
       </div>
       {/* RIGHT LINKS */}
-      <div className="hidden flex-1 items-center gap-4 md:flex">
+      <div className="hidden flex-1 items-center justify-end gap-4 md:flex">
         <div className="flex cursor-pointer items-center gap-2 rounded-md bg-orange-300 px-2 py-1 text-[10.5px] duration-150 hover:brightness-95 lg:text-base">
           <Image src="/icons/phone.png" alt="Phone" width={20} height={20} />
           <span>(99) 99999-9999</span>
