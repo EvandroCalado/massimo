@@ -3,13 +3,35 @@
 import Image from 'next/image';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { featuredProducts } from '../../utils/data';
 
+import { useEffect, useState } from 'react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import { ProductType } from '../../types/type-product';
 
 export default function Featured() {
+  const [featuredProducts, setFeaturedProducts] = useState<ProductType[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    fetch('http://localhost:3000/api/products')
+      .then((res) => res.json())
+      .then((data) => {
+        setFeaturedProducts(data);
+        setIsLoading(false);
+      });
+  }, []);
+
+  if (isLoading)
+    return (
+      <div className="flex h-[80vh] w-full animate-pulse items-center justify-center text-xl font-bold text-red-500">
+        Loading...
+      </div>
+    );
+
+  if (!featuredProducts) return <div>No products found</div>;
+
   return (
     <Swiper
       modules={[Navigation, Pagination, Autoplay]}
@@ -17,7 +39,6 @@ export default function Featured() {
       autoplay
       loop
       pagination={{ clickable: true }}
-      spaceBetween={50}
       breakpoints={{
         0: {
           slidesPerView: 1,
@@ -60,43 +81,6 @@ export default function Featured() {
           </div>
         </SwiperSlide>
       ))}
-      {/* <SwiperSlide>Slide 1</SwiperSlide> */}
     </Swiper>
   );
-  // <div className="w-screen overflow-x-scroll text-red-500">
-  //   {/* WRAPPER */}
-  //   <div className="flex w-max">
-  //     {/* SINGLE ITEM */}
-  //     {featuredProducts.map((product) => (
-  //       <div
-  //         key={product.id}
-  //         className="flex h-screen w-screen flex-col items-center p-4 duration-150 hover:bg-fuchsia-50 md:w-[49.3vw] xl:h-[90vh] xl:w-[33.3vw]"
-  //       >
-  //         {/* IMAGE CONTAINER */}
-  //         {product.img && (
-  //           <div className="relative m-4 w-full flex-1 duration-150 hover:scale-105">
-  //             <Image
-  //               src={product.img}
-  //               alt="Product"
-  //               fill
-  //               className="object-contain"
-  //             />
-  //           </div>
-  //         )}
-  //         {/* TEXT CONTAINER */}
-  //         <div className="flex flex-1 flex-col items-center justify-center gap-4 text-center">
-  //           <h1 className="text-xl font-bold uppercase xl:text-2xl">
-  //             {product.title}
-  //           </h1>
-  //           <p className="p-4">{product.desc}</p>
-  //           <span className="text-xl font-bold">R$ {product.price}</span>
-  //           <button className="bg-red-500 p-2 text-white duration-150 hover:bg-red-600">
-  //             Adicionar
-  //           </button>
-  //         </div>
-  //       </div>
-  //     ))}
-  //   </div>
-  // </div>
-  // );
 }
