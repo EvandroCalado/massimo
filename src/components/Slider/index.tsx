@@ -36,7 +36,7 @@ export default function Slider() {
   }, [currentSlide]);
 
   return (
-    <div className="flex h-[calc(100vh-6rem)] flex-col bg-fuchsia-50 md:flex-row lg:h-[calc(100vh-9rem)]">
+    <div className="flex h-[calc(100vh-6rem)] flex-col bg-fuchsia-50 dark:bg-theme-800 md:flex-row lg:h-[calc(100vh-9rem)]">
       {/* TEXT CONTAINER */}
       <div className="flex h-1/2 w-full flex-col items-center justify-center gap-8 font-bold text-red-500 md:h-full">
         <h1 className="p-4 text-center text-4xl uppercase sm:text-5xl md:p-6 md:text-6xl xl:text-7xl">
