@@ -1,15 +1,36 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { pizzas } from '../../../utils/data';
+import { ProductType } from '../../../types/type-product';
 
-export default function Category() {
+const getData = async (category: string) => {
+  const res = await fetch(
+    `http://localhost:3000/api/products?cat=${category}`,
+    {
+      cache: 'no-store',
+    },
+  );
+
+  if (!res.ok) throw new Error('Failed to fetch data on menu');
+
+  return res.json();
+};
+
+type ParamsType = {
+  params: {
+    category: string;
+  };
+};
+
+export default async function Category({ params }: ParamsType) {
+  const products: ProductType[] = await getData(params.category);
+
   return (
     <div className="grid grid-cols-1 text-red-500 md:grid-cols-2 lg:grid-cols-3">
-      {pizzas.map((pizza) => (
+      {products.map((pizza) => (
         <Link
           href={`/product/${pizza.id}`}
           key={pizza.id}
-          className="group flex h-[60vh] w-full flex-col items-center justify-between p-4 even:bg-theme-50"
+          className="group flex h-[60vh] w-full flex-col items-center justify-between p-4 even:bg-theme-50 dark:even:bg-theme-800"
         >
           {/* IMAGE CONTAINER */}
           {pizza.img && (
