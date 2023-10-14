@@ -67,7 +67,7 @@ export default function Cart() {
         </div>
       </div>
       {/* PAYMENT CONTAINER */}
-      <div className=" flex flex-col justify-center gap-4 p-4 lg:mb-8 lg:h-full lg:w-1/3 lg:self-end">
+      <div className=" flex flex-col justify-center gap-4 p-4 lg:mb-4 lg:h-full lg:w-1/3 lg:self-end">
         <div className="flex justify-between">
           <span>Subtotal (3 item)</span>
           <span>R$81.90</span>
